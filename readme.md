@@ -1,6 +1,6 @@
 # BaitAware Clickbait Detection System
 
-An open-source project using deep learning to combat clickbait, promoting digital literacy and cybersecurity.
+An open-source project using deep learning to combat clickbait, promoting digital literacy and cybersecurity. BE Computer Engineering Major Project
 
 ## Features
 - Text and image-based clickbait detection
