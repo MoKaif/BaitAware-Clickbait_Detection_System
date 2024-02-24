@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block content %}
+<p class="text-left">{{ fname }} successfully uploaded.</p>
+<div class="row">
+  <div class="col-md-5">
+    <div class="image-container">
+      <!-- <p class="text-left">Original Image</p>      -->
+      <a href="/static/uploads/{{ fname }}" target="_new"
+        ><img
+          src="/static/uploads/{{ fname }}"
+          class="upload-image-thumb"
+          height="500"
+          width="500"
+      /></a>
+    </div>
+  </div>
+  <div class="col-md-7 ocr-text">
+    <div class="image-container">
+      <!-- <p class="text-left"> Processed Image</p>      -->
+      <a href="/static/uploads/{{ fname2 }}" target="_new"
+        ><img
+          src="/static/uploads/{{ fname2 }}"
+          class="upload-image-thumb"
+          height="500"
+          width="500"
+      /></a>
+    </div>
+    <!--<p class="text-left">   <b>Prediction:</b> Given image is <b>{{ result }}</b> with score <b>{{ score }}%</b>.</p>-->
+  </div>
+</div>
+<div padding="50" class="upload-form">
+  <p class="text-center">Upload another?</p>
+  <form
+    action="/baitaware/api/v1/uploader"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input type="file" name="file" />
+    <input type="submit" />
+  </form>
+</div>
+<div>
+  {% if result=='HAM' %}
+  <h2 style="color: green">{{ result }}</h2>
+  {% else %}
+  <h2 style="color: red">{{ result }}</h2>
+  {% endif %}
+
+  <h6 style="color: blue">Clickbait Score: {{score}}</h6>
+
+  <div align="center" padding="auto" class="progress">
+    <div
+      class="progress-bar progress-bar-success"
+      role="progressbar"
+      aria-valuenow="{{score}}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      style="width:{{score}}%"
+    ></div>
+  </div>
+
+  {% endblock %}
+</div>
