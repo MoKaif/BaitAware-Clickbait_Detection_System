@@ -61,8 +61,6 @@ protobuf==4.25.3
 pure-eval==0.2.2
 Pygments==2.17.2
 pytesseract==0.3.10
-python-dateutil==2.9.0.post0
-pywin32==306
 pyzmq==25.1.2
 referencing==0.34.0
 requests==2.31.0
