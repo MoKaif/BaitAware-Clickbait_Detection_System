@@ -1,24 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  
-    <!--<p>This is a demonstration of Image spam classification using Python.</p>-->
-    <p>Upload an image for classification - there is a 2MB size limit using the Flask Development server.  Here are images under 1MB (right click on link and save to disk):<p>
-     <!-- <ul>
-        <li><a href="https://www.torzyn.com/images/senior_python_developer_nlplogix1_sm.jpg" target="_new">Senior Python Developer 1</a></li>
-        <li><a href="https://www.torzyn.com/images/senior_python_developer_nlplogix2_sm.jpg" target="_new">Senior Python Developer 2</a></li>
-        <li><a href="https://www.torzyn.com/images/senior_python_developer_nlplogix3_sm.jpg" target="_new">Senior Python Developer 3</a></li>
-      </ul> -->
-      <p>Link to <a href=# target="_new">Github repository</a></p>
-    </p>
-    </p>
-    <div class="upload-form">
-      <form action = "/baitaware/api/v1/uploader" method = "POST" 
-        enctype = "multipart/form-data">
-        <input type = "file" name = "file" id="fileInput"/>
-        <input type = "submit" value="submit" disabled/>
-      </form>
-    </div>
+<link
+href="{{ url_for('static', filename='css/main.css') }}"
+rel="stylesheet"
+/>
+<div class="upload-page">
+  <p>Upload an image for classification - there is a 2MB size limit using the Flask Development server.<p>
+    <p>Link to <a href=https://github.com/MoKaif/BaitAware-Clickbait_Detection_System target="_new">Github repository</a></p>
+  </p>
+  </p>
+  <div class="upload-form">
+    <form action = "/baitaware/api/v1/uploader" method = "POST" 
+      enctype = "multipart/form-data">
+      <input type = "file" name = "file" id="fileInput"/>
+      <input type = "submit" value="submit" disabled/>
+    </form>
+  </div>
+</div>
+    
   
 
 {% endblock %}

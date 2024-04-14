@@ -24,7 +24,7 @@ header {
 
 .upload-image-thumb {
   max-width: 400px;
-  margin: 20px;
+  margin: 50px;
 }
 .image-container {
   margin: 0px auto;
@@ -34,4 +34,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   width: 8em;
+}
+.upload-page {
+  font-size: 15px;
 }
