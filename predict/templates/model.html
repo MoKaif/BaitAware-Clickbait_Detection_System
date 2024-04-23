@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
+<div>
+    <p class="lexend mt-10">Upload an image for classification - there is a 2MB size limit using the Flask Production
+        server.
+    <p></p>
+    <div class="flex mt-10 w-screen justify-center font-bold text-red-500 text-3xl lexend">
+        <div class="letter-animation">
+            <span>Check</span>
+            <span>the</span>
+            <span>Clickbait</span>
+            <span>Now!</span>
+        </div>
+    </div>
+
+    <div class="w-4/5 block mt-10">
+        <form action="/baitaware/api/v1/uploader" , method="POST" enctype="multipart/form-data">
+            <label class="text-lg mb-2 font-medium text-gray-900 dark:text-white lexend" for="file_input">Upload
+                file</label>
+            <input
+                class="mt-5 w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                id="large_size" type="file" name="file" id="fileInput" />
+            <p class="mt-2 text-lg text-gray-500 lexend dark:text-gray-300" id="file_input_help">SVG, PNG, JPG
+                or GIF (MAX. 800x400px).</p>
+
+            <input type="submit" value="Submit"
+                class="mt-5 lexend text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 cursor-pointer"></input>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

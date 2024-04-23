@@ -61,27 +61,30 @@ def text_spam(img):
   def clearup_text(text):
       return remove_newline_feed(remove_non_ascii(text))
 
-
-  text = pytesseract.image_to_string(img)
+  text = pytesseract.image_to_string(Image.open(img))
+  # text = pytesseract.image_to_string(img)
   text = clearup_text(text)
+  if len(text) < 5:
+     return None
+  print(text)
   iterables = [text]
   _score = text_model.predict(loaded_vectorizer.transform(iterables))
-  probabilities = text_model.predict_proba(loaded_vectorizer.transform(iterables))[:, 1]
-  # print(probabilities)
+  probabilities = text_model.predict_proba(loaded_vectorizer.transform(iterables))[0][0]
+  print(probabilities)
   return probabilities
 
 
-@app.route("/baitaware/api/v1/liveness")
+@app.route("/baitaware/api/v1/home")
 def liveness():
-  return 'API live!'
+  return render_template("index.html")  
 
 @app.route("/baitaware/api/v1/model")
 def model():
-  return render_template("index.html")  
+  return render_template("model.html")  
 
-@app.route("/baitaware/api/v1/about")
-def about():
-  return render_template("about.html")
+@app.route("/baitaware/api/v1/contact")
+def contact():
+  return render_template("contact.html") 
 
 @app.route('/baitaware/api/v1/uploader', methods = ['GET', 'POST'])
 def upload_file():
@@ -110,12 +113,15 @@ def upload_file():
       app.logger.info(img_array.shape)
 
       # perform OCR on the processed image
-      _score = text_spam(img)
-      # print(_score)
+      _score = text_spam(filepath)
+      
       # image classification on processed image
       pred = image_model.predict(img_array)
       pred = pred[0][0]
-      pred = float(((pred + pred + pred + _score)/4))
+      print(pred)
+      if _score != None: 
+        pred = float(((pred + _score)/2))
+      
       
       result = 'Clickbait Detected' if pred > 0.5 else 'Legit'
       # load the example image and convert it to grayscale
@@ -131,8 +137,8 @@ def upload_file():
       
 
       out_img = image.copy()
-      # _score = 0.67
       d = pytesseract.image_to_data(img, output_type=Output.DICT)
+
       n_boxes = len(d['level'])
       for i in range(n_boxes):
          (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])

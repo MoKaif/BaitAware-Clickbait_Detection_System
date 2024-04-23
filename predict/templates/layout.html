@@ -1,65 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>BaitAware-Clickbait_Detection_System</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <link
-      href="{{ url_for('static', filename='css/main.css') }}"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1 class="text-5xl" align="center">BaitAware</h1>
-      </div>
-    </header>
 
-    <div align="center" class="container-fluid">
-      {% block content %} {% endblock %}
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bait Aware</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" />
+</head>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $("input:file").change(function () {
-          if ($(this).val()) {
-            $("input:submit").attr("disabled", false);
-            // or, as has been pointed out elsewhere:
-            // $('input:submit').removeAttr('disabled');
-          }
-        });
+<body>
+  <header>
+    <nav class="lexend">
+      <ul>
+        <li>
+          <h1>
+            <a href="home">
+              <span class="fa-solid fa-code" aria-hidden="true"></span>
+              <span class="text-4xl font-bold">BaitAware</span>
+            </a>
+          </h1>
+        </li>
+        <li><a href="home">Home</a></li>
+        <li><a href="home#about">About</a></li>
+        <li><a href="model">Check Bait</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li>
+          <a href="" target="blank">
+            <span class="fab fa-linkedin" aria-hidden="true"></span>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="fab fa-github" aria-hidden="true"></span>
+            <span class="sr-only">GitHub</span>
+          </a>
+        </li>
+      </ul>
+      <canvas id="canvas"></canvas>
+      <script src="index.js"></script>
+    </nav>
+    <div class="gradient"></div>
+  </header>
+
+  <div align="center">
+    {% block content %} {% endblock %}
+  </div>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript">
+    $(document).ready(function () {
+      $("input:file").change(function () {
+        if ($(this).val()) {
+          $("input:submit").attr("disabled", false);
+        }
       });
-    </script>
-  </body>
+    });
+  </script> -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+
 </html>

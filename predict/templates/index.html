@@ -1,24 +1,197 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
 <link
 href="{{ url_for('static', filename='css/main.css') }}"
 rel="stylesheet"
 />
-<div class="upload-page">
-  <p>Upload an image for classification - there is a 2MB size limit using the Flask Development server.<p>
-    <p>Link to <a href=https://github.com/MoKaif/BaitAware-Clickbait_Detection_System target="_new">Github repository</a></p>
-  </p>
-  </p>
-  <div class="upload-form">
-    <form action = "/baitaware/api/v1/uploader" method = "POST" 
-      enctype = "multipart/form-data">
-      <input type = "file" name = "file" id="fileInput"/>
-      <input type = "submit" value="submit" disabled/>
-    </form>
-  </div>
+
+
+<div class="flex mt-10 w-screen justify-center font-bold text-red-500 text-3xl lexend">
+        <div class="letter-animation">
+            <span>Be</span>
+            <span>Aware</span>
+            <span>of</span>
+            <span>Clickbaits!</span>
+        </div>
 </div>
-    
-  
+</div>
+
+<div class="introduction mt-10 flex m-auto w-screen justify-center">
+    <div class="letter-animation w-2/4">
+        <p class="lexend text-green-500 text-3xl mt-3">
+            <span>Welcome</span>
+            <span>to</span>
+            <span> <i>BaitAware:</i></span>
+            <span>Your</span>
+            <span>Shield</span>
+            <span>Against</span>
+            <span>Clickbait!</span>
+        </p>
+        <p class="mt-4 lexend"><span>Empowering Users,</span> <span>Eliminating Deception </span></p>
+        <a href="model">
+            <button type="button" class="mt-10 lexend focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Get Started ></button>
+        </a>
+    </div>
+    <div class="letter-animation w-1/4">
+        <span>
+            <img src="{{ url_for('static', filename='img/clickbaitimg.jpeg') }}"  alt="">
+        </span>
+    </div>
+</div>
+
+    <div class="w-screen mt-48 flex flex-col items-center lexend" id="about">
+        <div>
+            <p class="text-4xl font-medium lexend">What is BaitAware ?</p>
+        </div>
+        <div class="flex justify-evenly mt-10">
+            <div class="w-[40%]"><img src="{{ url_for('static', filename='img/clickbaitintro.jpg') }}" alt=""></div>
+            <div class="w-[40%]"><p class="raleway text-lg">In the digital age, the prevalence of <i>clickbait</i> poses challenges for users, content creators, and platforms alike, leading to misinformation and frustration. Our project introduces a <i>Clickbait Detection System</i> that combines advanced machine learning and image processing techniques to accurately identify clickbait content. Through a user-friendly web application interface, users can make informed decisions about the content they engage with online. We delve into the technical details of text and image analysis, highlighting the significance of our system in promoting a trustworthy online environment.</p></div>
+        </div>
+    </div>
+    <div class="w-4/5 m-auto mt-48 flex flex-col">
+        <div>
+            <p class="text-4xl">BaitAware Objectives</p>
+        </div>
+        <div class="mt-10 mx-10">
+            <ul>
+                <li class="list-disc">Research and Model Evaluation: Conduct research on clickbait detection 
+                    methodologies and evaluate various machine learning models for both text and image 
+                    classification.</li>
+                <li class="list-disc">Dataset Acquisition and Preparation: Gather datasets for text and image 
+                    classification, preprocess the data, and create a unified dataset for training the models.</li>
+                <li class="list-disc">Model Training and Selection: Train machine learning models, including 
+                    Multinomial Bayes for textual classification and Convolutional Neural Networks 
+                    (CNN) for image classification. Select the best-performing models for integration into 
+                    the ensemble.</li>
+                <li class="list-disc">OCR Integration: Implement Optical Character Recognition (OCR) to extract textual data from images and append it to the dataset, enhancing the text classification model's performance. </li>
+                <li class="list-disc">Ensemble Model Development: Develop an ensemble model that aggregates 
+                    predictions from the text and image classification models to enhance clickbait detection 
+                    accuracy. </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ourteam w-[100%] flex flex-col items-center justify-center mt-24 p-4">
+        <div class="lexend text-3xl"><p>Our Team</p></div>
+        <div class="mt-5">
+            <p class="text-base">We strive to do everything so that you can comfortably and productively work in our space and create amazing products and services </p></div>
+        <div class="teams w-screen flex justify-center">
+            <div class="teamleader ">
+                <div class="outsidebox p-4">
+                    <div class="photo border-2">
+                        <img src="{{ url_for('static', filename='img/fardeen.jpg') }}" width="200px" alt="">
+                    </div>
+                    <div class="name mt-6 lexend">
+                        <p class="text-center">Fardeen Kachawa</p>                    
+                    </div>
+                    <div class="socialmedia flex justify-center space-x-3 mt-4">
+                        <div>
+                            <a href="https://www.linkedin.com/in/fardeenkachawa/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/linkedin.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/fardeenk8" target="_blank">
+                                <img src="{{ url_for('static', filename='img/github.png') }}" target="_blank" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/ft.fardeen__/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/instagram.png') }}"  width="30" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="teamleader ">
+                <div class="outsidebox p-4">
+                    <div class="photo border-2">
+                        <img src="{{ url_for('static', filename='img/sujal.png') }}" width="200px" alt="">
+                    </div>
+                    <div class="name mt-6 lexend">
+                        <p class="text-center">Sujal Bhatt</p>
+                    </div>
+                    <div class="socialmedia flex justify-center space-x-3 mt-4">
+                        <div>
+                            <a href="https://www.linkedin.com/in/sujal-bhatt" target="_blank">
+                                <img src="{{ url_for('static', filename='img/linkedin.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/sujalb18" target="_blank">
+                                <img src="{{ url_for('static', filename='img/github.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/sujal.bhatt_/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/instagram.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="teamleader ">
+                <div class="outsidebox p-4">
+                    <div class="photo border-2">
+                        <img src="{{ url_for('static', filename='img/bhavesh.png') }}" width="200px" alt="">
+                    </div>
+                    <div class="name mt-6 lexend">
+                        <p class="text-center">Bhavesh Choudhary</p>                    
+                    </div>
+                    <div class="socialmedia flex justify-center space-x-3 mt-4">
+                        <div>
+                            <a href="https://www.linkedin.com/in/bhavesh1030/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/linkedin.png') }}"  width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/Bhavesh2030/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/github.png') }}"  width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/bhaveshhhh22/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/instagram.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="teamleader ">
+                <div class="outsidebox p-4">
+                    <div class="photo border-2">
+                        <img src="{{ url_for('static', filename='img/kaif.jpg') }}" width="200px" alt="">
+                    </div>
+                    <div class="name mt-6 lexend">
+                        <p class="text-center">Kaif Siddique</p>
+                    </div>
+                    <div class="socialmedia flex justify-center space-x-3 mt-4">
+                        <div>
+                            <a href="https://www.linkedin.com/in/mokaif/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/linkedin.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/MoKaif" target="_blank">
+                                <img src="{{ url_for('static', filename='img/github.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://www.instagram.com/kaifali_4/" target="_blank">
+                                <img src="{{ url_for('static', filename='img/instagram.png') }}" width="30" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer mt-10 flex justify-center border-t-2 lexend text-sm py-4">
+        <p>Copyright &copy; baitAware 2024</p>
+    </div>
 
 {% endblock %}

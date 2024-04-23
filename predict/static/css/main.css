@@ -1,40 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --black: #171321;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+}
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
 body {
-  background-color: #f4f4f4;
-  font-family: "Open Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+    /* font-family: var(--mono); */
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+    overflow-x: hidden;
 }
 
-header {
-  background-color: #fff;
-  padding: 25px 0;
+.ourteam{
+    background-color: rgba(0, 0, 0, 0.3); /* Black with 30% transparency */
 }
 
-.title {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 27px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-left: auto;
-  margin-right: auto;
+.outsidebox{
+    background-color: rgba(48, 43, 43, 0.5);
+    margin: 20px 30px;
+}
+h1 {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 230%;
+}
+a:hover {
+    color: var(--hotmag);
+    text-decoration: none;
+}
+.gradient {
+    background: linear-gradient(90deg, rgba(255, 23, 228, 1) 0%, rgba(134, 251, 251, 1) 100%);
+    height: 2px;
+}
+nav {
+    font-size: 80%;
+    padding: 4rem 1rem;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+nav [class*="fa-"] {
+    font-size: 150%;
+    color: var(--aqua);
+}
+nav h1 [class*="fa-"] {
+    font-size: 100%;
+    color: var(--aqua);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+nav a:hover,
+nav [class*="fa-"]:hover {
+    color: var(--magenta);
+}
+.button {
+    background-color: var(--magenta);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: var(--mono);
+}
+.button:hover {
+    color: white;
+    background-color: var(--hotmag);
+}
+@media (min-width: 850px) {
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: inherit;
+    right: inherit;
+    bottom: 0;
+    z-index: -1;
 }
 
-.title a,
-.title a:visited {
-  color: #3a3a3a;
+.lexend{
+    font-family: "Lexend", sans-serif;
 }
 
-.upload-image-thumb {
-  max-width: 400px;
-  margin: 50px;
-}
-.image-container {
-  margin: 0px auto;
+/* .dynamic-txt p{
+    font-size: 200%;
 }
 
-.blocktext {
-  margin-left: auto;
-  margin-right: auto;
-  width: 8em;
+.dynamic-txt span{
+    position: relative;
 }
-.upload-page {
-  font-size: 15px;
+
+.dynamic-txt span::after{
+content: "";
+background-color: var(--black);
+position: absolute;
+left: 0;
+height: 100%;
+width: 100%;
+border-left: 2px solid black;
+animation: typing 1.5s steps(20) infinite;
+}
+
+@keyframes typing {
+100%{
+    left: 100%;
+    margin: 0 15px 0 15px;
+}
+}    */
+
+
+/* Keyframes for letter animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .letter-animation span {
+    display: inline-block;
+    animation: fadeIn 0.5s ease-in-out both;
+    opacity: 0;
+  }
+  
+  /* Delay each letter's animation */
+  .letter-animation span:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .letter-animation span:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+  .letter-animation span:nth-child(4) {
+    animation-delay: 1.2s;
+  }
+  .letter-animation span:nth-child(5) {
+    animation-delay: 1.6s;
+  }
+  .letter-animation span:nth-child(6) {
+    animation-delay: 2s;
+  }
+  .letter-animation span:nth-child(7) {
+    animation-delay: 2.4s;
+  }
+
+.raleway{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
 }
